@@ -1,0 +1,1 @@
+negation_words = set(['not', 'never', 'no', "n't"])

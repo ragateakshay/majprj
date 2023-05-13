@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Web Scraping & Sentiment Analysis</title>
+        <style>
+            *{
+    box-sizing: border-box;
+    margin:0;
+}
+
+body{
+    background-color: #77aa77;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%2377aa77'/%3E%3Cstop offset='1' stop-color='%234fd'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23cf8' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23cf8' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2'%3E%3Cstop offset='0' stop-color='%23cf8' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23cf8' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
+font-size: 100;
+}
+
+h1{
+    text-align: center;
+    height: 100px;
+    padding: 20px;
+    font-size: 30px;
+    background-color: #5900ff;
+    color: #ffffff;
+    letter-spacing: 4px;
+}
+
+form{
+    margin: 100px 450px 100px 450px;
+    padding: 50px;
+    color: #000000;
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+input[id=url]{
+    padding: 10px; 
+    height: 30px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+
+input[id=button]{
+    border-radius: 30px;
+}
+        </style>
+
+    </head>
+    <body>
+        <h1>Web Scraping & Sentiment Analysis<br>Major Project</h1>
+        <form method="POST">
+            <br>
+            <table class="center">
+                <tr><input type="text" id="url" placeholder="Enter the URL of the web page you want to summarize:" name="url" required></tr>
+            </table>
+            <br>
+            <br>
+            <table class="center">
+                <tr>
+                    <td><input type="radio" id="Website blog" name="radio_button" value="Website blog">
+                    <label for="Website blog">Website blog</label><br></td>
+                <tr>
+                    <td><input type="radio" id="Amazon" name="radio_button" value="Amazon">
+                    <label for="Amazon">Amazon</label><br></td>
+                <tr>
+                    <td><input type="radio" id="Flipkart" name="radio_button" value="Flipkart">
+                    <label for="Flipkart">Flipkart</label></td>
+                </tr>
+            </table>
+            <br>
+            <table class="center">
+                <tr>
+                    <td><input id="button" align = "center" type="submit" value="Sentiment"></td>
+            </table>
+            <br>
+            
+        </form>
+    {% if summary %}
+    <hr>
+    <h2>Summary:</h2>
+    <p>{{ summary }}</p>
+    {% endif %}
+    <br>
+    <br>
+    {% if sentiment %}
+    <hr>
+    <h2>Sentiment:</h2>
+    <p>{{ sentiment }}</p>
+    {% endif %}
+    </body>
+</html>
